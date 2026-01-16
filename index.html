@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Arthur Show | Official Website</title>
+    
+    <!-- Tailwind for rapid layout and FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#aa0905',
+                        brandBlue: '#0294d8',
+                        brandWhite: '#fcfdfe',
+                        brandBlack: '#0a0a0a'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="logo text-xl md:text-2xl font-bold tracking-tighter">
+                
+                <span class="text-brandBlue">DJ</span> ARTHUR <span class="text-brandRed">SHOW</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 uppercase text-xs font-semibold tracking-widest">
+                <a href="#inicio" class="nav-link text-brandWhite hover:text-brandBlue">Início</a>
+                <a href="#musicas" class="nav-link text-brandWhite hover:text-brandBlue">Músicas</a>
+                <a href="#sobre" class="nav-link text-brandWhite hover:text-brandBlue">Sobre</a>
+                <a href="#galeria" class="nav-link text-brandWhite hover:text-brandBlue">Galeria</a>
+                <a href="#contato" class="nav-link text-brandWhite hover:text-brandBlue">Contato</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-black border-b border-white/10 flex flex-col p-6 space-y-4 text-center font-bold">
+            <a href="#inicio" onclick="toggleMenu()">Início</a>
+            <a href="#musicas" onclick="toggleMenu()">Músicas</a>
+            <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+            <a href="#galeria" onclick="toggleMenu()">Galeria</a>
+            <a href="#contato" onclick="toggleMenu()">Contato</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb1?auto=format&fit=crop&q=80&w=1920" alt="DJ Arthur Show" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <p class="text-brandBlue font-semibold tracking-[0.3em] uppercase mb-4">The Rock Doido Drops Here</p>
+           <!-- <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">
+                DJ ARTHUR <br> <span class="gradient-text">SHOW</span>
+            </h1>-->
+            <img src="images/logo-white.png"  class="logo-top" alt="Dj Arthur Show logo" >
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <a href="#contato" class="bg-brandBlue text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:brightness-110 transition-all shadow-glow-blue w-full md:w-auto">Contratar</a>
+                <a href="#musicas" class="border border-white/20 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white/10 transition-all w-full md:w-auto">Ver Músicas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="musicas" class="py-24 bg-brandBlack">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Top 5 <span class="text-brandRed">Hits</span></h2>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-3">
+                    <div class="bg-zinc-900 rounded-2xl p-4 border border-white/5 music-card">
+                        <div class="aspect-video w-full rounded-xl overflow-hidden bg-black shadow-2xl">
+                            <iframe id="main-player" class="w-full h-full" src="https://www.youtube.com/embed/EH3Qg76eJ50" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 flex flex-col gap-3" id="playlist">
+                    <!-- Playlist Items -->
+                    <div class="song-item active" onclick="changeVideo('EH3Qg76eJ50')">
+                        <span class="num">01</span>
+                        <div class="flex-grow"><p class="font-bold">Fui Pará pré-carnaval 2025 no Pappas</p></div>
+                        <i class="fas fa-play text-brandBlue"></i>
+                    </div>
+                    <div class="song-item" onclick="changeVideo('Flr8jYF-VK0')">
+                        <span class="num">02</span>
+                        <div class="flex-grow"><p class="font-bold">Set Live Marcantes de 2003</p></div>
+                        <i class="fas fa-play text-brandBlue"></i>
+                    </div>
+                    <div class="song-item" onclick="changeVideo('g5e0LNGvU_')">
+                        <span class="num">03</span>
+                        <div class="flex-grow"><p class="font-bold">Set Live Fui Pará de Verão - 2025</p></div>
+                        <i class="fas fa-play text-brandBlue"></i>
+                    </div>
+                    <div class="song-item" onclick="changeVideo('1SgWSsQPSJw')">
+                        <span class="num">04</span>
+                        <div class="flex-grow"><p class="font-bold">Set Vídeo Mixado de Marcantes</p></div>
+                        <i class="fas fa-play text-brandBlue"></i>
+                    </div>
+                    <div class="song-item" onclick="changeVideo('LxTImuHVBLo')">
+                        <span class="num">05</span>
+                        <div class="flex-grow"><p class="font-bold">Set Live 8 anos de Fui Pará</p></div>
+                        <i class="fas fa-play text-brandBlue"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="sobre" class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-6 uppercase">O Show Não Para</h2>
+                <p class="text-gray-400 mb-8 leading-relaxed text-lg">
+                    DJ Arthur Show é especialista em transformar pistas de dança. Com uma técnica refinada e um repertório que atravessa gerações, ele entrega mais que música: entrega uma performance audiovisual completa.
+                </p>
+               <!-- <div class="flex gap-6">
+                    <div class="text-center bg-zinc-900 p-4 rounded-xl border border-white/5 w-1/2">
+                        <p class="text-3xl font-bold text-brandBlue">9+</p>
+                        <p class="text-xs text-gray-500 uppercase">Anos de Carreira</p>
+                    </div>
+                    <div class="text-center bg-zinc-900 p-4 rounded-xl border border-white/5 w-1/2">
+                        <p class="text-3xl font-bold text-brandRed">1500</p>
+                        <p class="text-xs text-gray-500 uppercase">Shows Realizados</p>
+                    </div>
+                </div>-->
+            </div>
+            <div class="relative">
+                <img src="images/Dj-Arthur-Show-Galery.png?auto=format&fit=crop&q=80&w=800" class="rounded-3xl shadow-soft grayscale hover:grayscale-0 transition-all duration-700 border border-white/10">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="galeria" class="py-24 bg-brandBlack">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-16 uppercase">Galeria <span class="text-brandBlue">Vip</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="images/Dj-Arthur-Show-1.jpg?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover aspect-square">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="images/Dj-Arthur-Show-2.jpg?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover aspect-square">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="images/Dj-Arthur-Show-3.jpg?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover aspect-square">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="images/Dj-Arthur-Show-4.jpg?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover aspect-square">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contato" class="py-24 bg-zinc-900">
+        <div class="container mx-auto px-6 max-w-2xl text-center">
+            <h2 class="text-3xl font-bold mb-12 uppercase">Reserve sua <span class="text-brandRed">Data</span></h2>
+            <form class="space-y-4">
+                <input type="text" placeholder="Nome Completo" class="form-input">
+                <input type="email" placeholder="E-mail" class="form-input">
+                <textarea rows="4" placeholder="Detalhes do seu evento..." class="form-input"></textarea>
+                <button type="submit" class="w-full bg-brandRed text-white py-4 rounded-xl font-bold uppercase hover:bg-red-700 transition-all">Solicitar Orçamento</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black border-t border-white/5 text-center">
+        <p class="text-gray-500 text-sm tracking-widest">&copy; 2025 DJ ARTHUR SHOW. TODOS OS DIREITOS RESERVADOS.</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" class="max-w-full max-h-full rounded-lg">
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
